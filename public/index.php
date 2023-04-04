@@ -4,6 +4,10 @@
 /******** ⚠️ WORK HERE ONLY ⚠️ ***********/
 
 require __DIR__ . '/../src/Animal.php';
+require __DIR__ . '/../src/Area.php';
+use App\Area;
+use App\Animal;
+
 
 $lion = new Animal('lion', 4);
 $lion->setCarnivorous(true);
@@ -16,6 +20,16 @@ $parrot->setSize(30);
 $elephant = new Animal('elephant', 4);
 $elephant->setThreatenedLevel('LC');
 
+$savana = new Area('savana');
+$savana->addAnimal($lion);
+$savana->addAnimal($elephant);
+
+$jungle = new Area('jungle');
+$savana->addAnimal($parrot);
+
+$aquarium = new Area('aquarium');
+
+$areas = [$savana, $jungle, $aquarium];
 $animals = [$lion, $parrot, $elephant];
 
 /***************************************/
