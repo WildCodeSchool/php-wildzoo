@@ -97,4 +97,5 @@ class Animal
             return ($this->getSize() / self::CENTIMETERS_IN_METER) . 'm';
         }
     }
+
 }
