@@ -17,11 +17,23 @@ use App\Snake;
 use App\Spider;
 
 $elephant = new Mammal('elephant');
-$elephant->setThreatenedLevel('LC');
+try {
+    $elephant->setThreatenedLevel('EX');
+} catch (RuntimeException $runtimeException) {
+    $smallErrors[]  = $runtimeException->getMessage();
+} catch (UnexpectedValueException $unexpectedValueException) {
+    $errors[]  = $unexpectedValueException->getMessage();
+}
 $elephant->setSize(400);
 
 $lion = new Felid('lion');
-$lion->setSize(100);
+try {
+    $lion->setSize(100);
+} catch (RangeException $exception) {
+    $smallErrors[]  = $exception->getMessage();
+} catch (Exception $exception) {
+    $errors[] = $exception->getMessage();
+}
 $lion->setThreatenedLevel('VU');
 
 $tiger = new Felid('tiger');
